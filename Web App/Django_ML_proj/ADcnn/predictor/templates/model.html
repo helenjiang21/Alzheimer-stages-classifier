@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <style>
+        .btn {
+            border-color: black;
+            color: black;
+            -webkit-transition: color 0.3s;
+            -ms-transition: color 0.3s;
+            -moz-transition: color 0.3s;
+            -o-transition: color 0.3s;
+            transition: color 0.3s;
+            -webkit-transition: border-color 0.3s;
+            -ms-transition: border-color 0.3s;
+            -moz-transition: border-color 0.3s;
+            -o-transition: border-color 0.3s;
+            transition: border-color 0.3s;
+            background-color: white;
+        }
+
+        .btn:hover {
+            border-color: gray;
+            color: gray;
+            background-color: white;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data" name = "f">
+            {% csrf_token %}
+            <br>
+                 <div class="text-center">
+                    <h1>Upload your image!</h1>
+                    <br>
+                    {{context.image}}
+                    <br>
+                    <br>
+                    <button class="btn btn-outline-primary" type="submit">
+                        Classify
+                    </button>
+                </div>
+            <br>
+             {% if img is not None %}
+                <div class="text-center">
+                    <h2>Your result: </h2>
+                    <img src = "{{img.image.url}}">
+                    <br>
+                    <h3>{{result}}</h3>
+                    <br>
+                    <br>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th><b>No Dementia</b></th>
+                            <th><b>Very Mild Dementia</b></th>
+                            <th><b>Mild Dementia</b></th>
+                            <th><b>Moderate Dementia</b></th>
+                        </tr>
+                        <tr>
+                            <td><b>Probability</b></td>
+                            <td>{{prob0}}%</td>
+                            <td>{{prob1}}%</td>
+                            <td>{{prob2}}%</td>
+                            <td>{{prob3}}%</td>
+                        </tr>
+                    </table>
+                </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

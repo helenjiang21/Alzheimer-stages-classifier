@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<head>
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+			font-family: Verdana;
+		}
+
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+			font-family: Verdana;
+		}
+
+		.imageContainer {
+			height: 100%;
+			width: 100%;
+			background-color: rgb(4, 7, 8);
+		}
+
+		.parallax1 {
+			background-image: url("https://singularityhub.com/wp-content/uploads/2018/11/multicolored-brain-connections_shutterstock_347864354-1068x601.jpg");
+			height: 100%;
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.content {
+			height: 2800px;
+			background-color: rgb(4, 7, 8);
+			padding-top: 150px;
+		}
+
+		.title {
+			color: white;
+			font-family: Verdana;
+			font-size: 100px;
+			width: 100%;
+			text-align: center;
+			position: relative;
+		}
+
+		.titleSubtextContainer {
+			height: 600px;
+			width: 80%;
+			margin: 0 auto;
+			position: relative;
+		}
+
+		.titleSubtext {
+			color: white;
+			font-family: Verdana;
+			font-size: 25px;
+		}
+
+		.labelContainer {
+			width: 80%;
+			margin: 0 auto;
+			height: 1000px;
+		}
+
+		.labelIntroText {
+			color: white;
+			font-family: Verdana;
+		}
+
+		.unlabeledImage {
+			width: 100%;
+		}
+
+		.left {
+			float: left;
+			width: 80%;
+		}
+
+		.right {
+			float: right;
+			width: 20%;
+		}
+
+		#brainPartLab {
+			font-size: 15px;
+		}
+
+		.frontalLobe {
+			color: rgb(187, 215, 234);
+		}
+
+		.parietalLobe {
+			color: rgb(252, 250, 164);
+		}
+
+		.temporalLobe {
+			color: rgb(187, 206, 162);
+		}
+
+		.closing {
+			color: white;
+			width: 100%;
+		}
+
+		.closingContainer {
+			width: 80%;
+			margin: 0 auto;
+		}
+
+		#toGray {
+			color: gray;
+		}
+
+		.exploreClassifier {
+			width: 80%;
+			text-align: center;
+			margin: 0 auto;
+			height: 75px;
+			font-size: 35px;
+			line-height: 65px;
+		}
+
+		.svg-wrapper {
+  			position: relative;
+		  	top: 50%;
+		  	transform: translateY(-50%);
+			margin: 0 auto;
+		  	width: 1000px;  
+		}
+
+		.shape {
+			stroke-dasharray: 200 1600;
+			stroke-dashoffset: -1150;
+			stroke-width: 8px;
+			fill: transparent;
+			stroke: #fff;
+			/*border-bottom: 5px solid black;*/
+			transition: stroke-width 1s, stroke-dashoffset 1.5s, stroke-dasharray 1.5s;
+		}
+
+		.text {
+			font-family: Verdana;
+			font-size: 30px;
+			line-height: 32px;
+			letter-spacing: 8px;
+			color: #fff;
+			top: -48px;
+			position: relative;
+		}
+
+		.svg-wrapper:hover .shape {
+			stroke-width: 3px;
+			stroke-dashoffset: 0;
+			stroke-dasharray: 2120;
+		}
+
+		#toWhite {
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div class="offsetTop"></div>
+	<div class="imageContainer">
+		<div class="parallax1">
+		</div>
+	</div>
+	<div class="content">
+		<h1 class="title" data-aos = "fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="750">Alzheimer's Disease</h1>
+		<div class="titleSubtextContainer" data-aos = "fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="1250">
+			<p class="titleSubtext" id="toGray">
+				Alzheimer's disease is the most common cause of dementia, where memory, thinking, and behavior can be affected. Alzheimer's disease alone accounts for 60-80% of all dementia cases. Although the majority of people with Alzheimer's are 65 and older, in the US, around 200,000 people under 65 have younger-onset Alzheimer's disease, otherwise known as early-onset Alzheimer's. 
+				<br>
+				<br>
+				Alzheimer's is a progressive or degenerate disease, meaning that dementia symptions gradually worsen over a time span of years. Symptoms can eventually grow severe enough and to the degree that completing daily tasks becomes a challenge. 
+				<br>
+				<br>
+				Unfortunately, Alzheimer's has no cure -- yet. However, treatments for symptoms are available, and can temporarily slow the dementia symptoms and improve the quality of life for those with Alzheimer's and the people taking care of them. 
+			</p>
+		</div>
+		<div class="labelContainer">
+			<div class="labelIntro">
+				<h2 class="labelIntroText" data-aos = "fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="750">Alzheimer's primarily affects the frontal lobe, parietal lobe, temporal lobe, and the hippocampus. </h2>
+				<br>
+				<p id="toGray" class="titleSubtext" data-aos = "fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="1000">
+					The connections between the neurons gets destroyed as Alzheimer's progresses. Eventually these cells die, casuing the brain to shrink.
+				</p>
+			</div>
+			<br>
+			<br>
+			<div class="unlabeledImage">
+				<div class="right">
+					<!--If i have time later, I can try to get this to be hover over part 
+						of brain, then display specific text-->
+					<p class="frontalLobe" id="brainPartLab" data-aos = "fade-left" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-delay="800">
+						<b>Frontal Lobe:</b>
+						<br>
+						The frontal lobe controls cognitive skills and is sometimes considered the "control panel" of our social aspect and communication. It controls problem solving, intelligence, judgement, and behaviors.
+					</p>
+					<br>
+					<p class="parietalLobe" id="brainPartLab" data-aos = "fade-left" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-delay="900">
+						<b>Parietal Lobe:</b>
+						<br>
+						The parietal lobe mainly recieves and processes sensory information frmo the outside. These can include sense of taste, touch, and temperature. Damage to the parietal lobe may also affect language.
+					</p>
+					<br>
+					<p class="temporalLobe" id="brainPartLab" data-aos = "fade-left" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-delay="1000">
+						<b>Temporal Lobe and Hippocampus:</b>
+						<br>
+						The hippocampus is located in the medial (inner) region of the temporal lobe. Along with the temporal lobe, the hippocampus is important in regulating emotional responses and most importantly memory.
+					</p>
+				</div>
+				<div class="left" data-aos = "fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="750">
+					<img src="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/855/2016/11/15045703/brainlobes.png" id="brainImgUnlab">
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<div class="closing">
+			<div class="closingContainer">
+				<div data-aos = "fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="750">
+					<h1>Due to the prevelance and severity of Alzheimer's disease, our aim is to accurately and efficiently detect patients for whether they have Alzheimer's, and if so, what stage of dementia are they at.</h1>
+				</div>
+				<br>
+				<div data-aos = "fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="1000">
+					<h3 id="toGray">This would allow families to prepare for taking care of a member with Alzheimer's, both financially (average cost for caring for someone with dementia is > $250,000) and socially. With more than 50 million people around the world having Alzheimer's or related dementia, this could help to identify which stage they are at, in turn, leading to doctors prescribing different medications. Also, given that only 1 in 4 people with Alzheimer's are actually diagnosed, our machine learning model could help to increase that percentage so that less people with Alzheimer's can go undiagnosed.</h3>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="exploreClassifier" data-aos = "zoom-in" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="1000">
+			<div class="svg-wrapper">
+				<svg height="60" width="800" xmlns="http://www.w3.org/2000/svg">
+				    <rect class="shape" height="60" width="800" />
+				    <div class="text">
+				    	<a id="toWhite" class="nav-link" href="{% url 'model' %}">Explore Our Alzheimer's Classifier</a>
+				    </div>
+				</svg>
+			</div>
+		</div>
+	</div>
+
+	<script src = "https://unpkg.com/aos@next/dist/aos.js"></script>
+  		<script>
+    		AOS.init();
+  		</script>
+</body>
+{% endblock %}

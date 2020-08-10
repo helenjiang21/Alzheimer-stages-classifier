@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data" name = "f">
+            {% csrf_token %}
+            <br>
+                 <div class="text-center">
+                    <h1>Upload your image!</h1>
+                    <br>
+                      {{context.image}}
+                      <br>
+                        <button class="btn btn-outline-primary" type="submit">Classify</button>
+                </div>
+            <br>
+             {% if img is not None %}
+                <div class="text-center">
+                    <h2>Your result: </h2>
+                    <img src = "{{img.image.url}}">
+                    <h2>{{result}}</h2>
+                    {{#if {{result}}==0}}
+                      <h1>{{result}}: No sign of AD</h1>
+                    {{if {{result}}==1}}
+                      <h1>{{result}}: Very Mild AD</h1>  
+                    {{if {{result}}==1}}
+                      <h1>{{result}}: Mild AD</h1>  
+                    {{else}}
+                      <h1>{{result}}: Moderate AD</h1>
+                    {{/if}}
+                    
+
+                </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}
